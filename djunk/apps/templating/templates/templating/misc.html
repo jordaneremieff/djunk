@@ -1,0 +1,10 @@
+{% load expr %}
+These assignments will be set to the result of the logic provided to the templatetag in
+the render context.
+{% expr item.amount > 1 and item.amount < 10 and "some" in item.name as result_1 %}
+{% expr item.name == "something_else" as result_2 %}
+These expressions will be evaluated in order and the first one to evaluate as False will
+determine the overall evaluation result.
+{% expr item.name is not None %}
+{% expr result_1 or result_2 %}
+{% expr result_1 and result_2 %}

@@ -1,0 +1,43 @@
+{% load expr %}
+{% expr membership and membership.type == "gold" or membership.type == "silver" as promos %}
+{% expr order.eligible_for_points and membership.points > 0 as points %}
+{% expr order.total >= 100 and order.shipping.country == "AU" as free_shipping %}
+<html>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Total</th>
+          {% if promos %}<th>Promos</th>{% endif %}
+          {% if points %}<th>Points</th>{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in order.items %}
+          <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.total }}</td>
+            {% if promos %}
+              <td>
+                {% for promo in item.product.promotions %}{{ promo }}{% endfor %}
+              </td>
+            {% endif %}
+            {% if points %}<td>{{ item.product.eligible_for_points|yesno:'Yes,No' }}</td>{% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if not promos %}
+      <p>
+        Signup today!
+      </p>
+    {% endif %}
+    <h2>Shipping</h2>
+    {% if free_shipping %}
+      Free shipping!
+    {% else %}
+      Estimate: {{ order.shipping.total }}
+    {% endif %}
+  </body>
+</html>
