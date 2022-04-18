@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "djunk"
-version = "0.1.0"
+version = "0.2.0"
 description = "My personal 'junk drawer' of reusable Django apps and related snippets."
 authors = ["Jordan Eremieff <jordan@eremieff.com>"]
 license = "MIT"
