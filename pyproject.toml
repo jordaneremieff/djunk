@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "djunk"
+version = "0.1.0"
+description = "A 'junk drawer' of reusable Django apps and snippets."
+authors = ["Jordan Eremieff <jordan@eremieff.com>"]
+license = "MIT"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-v --durations=10 -p no:logging -s --reuse-db --ignore .venv"
+testpaths = ["tests"]
+pythonpath = [".", "djunk"]
+DJANGO_SETTINGS_MODULE = "djunk.settings.local"
+norecursedirs = [
+    "data",
+    "static",
+    "node_modules",
+    "bin",
+    "dist",
+    "build",
+    "docs",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".secret",
+    ".txt",
+    ".idea",
+    ".git",
+    ".venv",
+    "*.egg",
+    ".eggs",
+    ".git",
+    ".github",
+    ".poetry",
+    "__pycache__",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.0.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.1"
+rich = "^12.2.0"
+black = "^22.3.0"
+django-stubs = "^1.10.1"
+pytest-django = "^4.5.2"
+django-click = "^2.3.0"
+django-debug-toolbar = "^3.2.4"
+django-extensions = "^3.1.5"
+mypy = "^0.942"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,9 @@
+# from django.db import models
+#
+#
+# class {{ camel_case_app_name }}Model(models.Model):
+#     """A model for {{ app_name }}"""
+#
+#     class Meta:
+#         verbose_name = "{{ camel_case_app_name }} Model Object"
+#         verbose_name_plural = "{{ camel_case_app_name }} Model Objects"

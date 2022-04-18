@@ -1,0 +1,10 @@
+# import factory
+#
+# from djunk.apps.{{ app_name }}.models import {{ camel_case_app_name }}Model
+#
+#
+# class {{ camel_case_app_name }}Factory(factory.Factory):
+#     field = factory.Faker("name")
+#
+#     class Meta:
+#         model = {{ camel_case_app_name }}Model

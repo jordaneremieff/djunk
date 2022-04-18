@@ -1,0 +1,9 @@
+# from django.contrib import admin
+#
+# from djunk.apps.{{ app_name }}.models import {{ camel_case_app_name }}Model
+#
+#
+# class {{ camel_case_app_name }}ModelAdmin(admin.ModelAdmin):
+#    fields = ["id",]
+#
+# admin.site.register({{ camel_case_app_name }}Model, {{ camel_case_app_name }}ModelAdmin)
