@@ -18,11 +18,12 @@ register = Library()
 
 
 class ExpressionNode(Node):
-    """A template node returned by the `{% expr %}` tag to evaluate conditional and
+    """A template node returned by the `{% expr %}` tag to evaluate expressions and
     optionally store the result.
 
     This is based on the `django.template.defaulttags.IfNode` class, but stripped down
     to handle only a single condition and nodelist and support variable assignments.
+
     Essentially `{% expr condition %}` is a shortcut for `{% if condition %}{% endif %}`
     that also supports assignments.
     """
@@ -60,6 +61,13 @@ class ExpressionNode(Node):
 
 @register.tag()
 def expr(parser: Parser, token: Token) -> ExpressionNode:
+    """Evaluate an expression and optionally store the result. This will support any
+    condition that is valid for use with the builtin `{% if %}` tag.
+
+    Usage:
+        {% expr condition %}
+        {% expr condition as name %}
+    """
     args = token.split_contents()[1:]
 
     # Extract the variable name for assignment expressions.

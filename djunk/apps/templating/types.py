@@ -5,7 +5,7 @@ from django.template import Context
 
 class InfixTemplateLiteral(Protocol):
     """Refers to `django.template.smartif.infix` which creates an `Operator` instance
-    to evaluation the condition in an expression.
+    to evaluate the condition in an expression.
     """
 
     def eval(self, context: Context) -> bool:

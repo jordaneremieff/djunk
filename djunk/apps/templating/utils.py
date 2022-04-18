@@ -17,7 +17,7 @@ def evaluate_template(
     result.
 
     This is similar to the `django.template.loader.render_to_string` method except that
-    it will only render the individual expression nodes but not the entire template.
+    it will only render the individual expression nodes instead of the entire template.
     """
     if isinstance(template_name, (list, tuple)):
         wrapper = loader.select_template(template_name, using=using)
