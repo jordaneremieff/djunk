@@ -3,6 +3,16 @@ max-line-length = 88
 ; per-file-ignores =
 ; ignore =
 
+show-source = True
+statistics = False
+doctests = True
+
+# flake8-eradicate
+eradicate-aggressive = True
+
+# flake8-pytest-style
+pytest-fixture-no-parentheses = False
+pytest-parametrize-names-type = csv
 
 exclude =
     .git,
